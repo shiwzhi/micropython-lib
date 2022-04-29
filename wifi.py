@@ -14,8 +14,9 @@ class WIFI:
 
     def setup_ap(self, ssid, password=""):
         self.ap = network.WLAN(network.AP_IF)
-        self.ap.config(essid=ssid, password=password)
         self.ap.active(True)
+        self.ap.config(essid=ssid, password=password,
+                       authmode=network.AUTH_WPA_WPA2_PSK)
 
     def start_webrepl(self, password=""):
         webrepl.start(password=password)
